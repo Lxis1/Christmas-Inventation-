@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Redirect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #count {
+      font-size: 48px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>You will be redirected in <span id="count">5</span> seconds...</h1>
+
+  <script>
+    let timeLeft = 5;  // countdown seconds
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      document.getElementById("count").textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = "ChristmasLink1.html";  // <-- your next link
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
