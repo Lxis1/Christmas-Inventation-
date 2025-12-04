@@ -3,110 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Cards</title>
+    <title> Christmas Cards</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-image: url('Wallpaper.jpeg');
-            background-position: center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-
-        .files {
-            position: absolute;
-            left: 30px;
-            top: 55px;
-            text-decoration: none;
-            color: rgb(55, 0, 207);
-        }
-
-        .X {
-            text-decoration: none;
-            color: black;
-        }
-
-        .X:hover {
-            color: aliceblue;
-        }
-
-        /* --- New + Fixes --- */
-        .Border1 {
-            width: 400px;
-            margin: 120px auto;
-            border: 3px solid black;
-            background: rgba(255,255,255,0.8);
-            padding: 20px;
-            position: relative;
-        }
-
-        .BorderExit {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            font-size: 22px;
-        }
-
-        .P1 {
-            text-align: center;
-            font-size: 28px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        .Border2 {
-            border: 2px solid black;
-            padding: 25px;
-            text-align: center;
-        }
-
-        .P3 {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
-
-        .Enter {
-            margin-top: 10px;
-        }
-
-        .AEnter {
-            padding: 10px 25px;
-            background: black;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .AEnter:hover {
-            background: #333;
-        }
+   body{
+    margin: 0;
+    padding: 0;
+    background-image: url('Wallpaper.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+   }
+.files{
+    position: absolute;
+    left: 30px;
+    top: 55px;
+    text-decoration: none;
+    color: rgb(55, 0, 207);
+}
+.X{
+    text-decoration: none;
+    color: black;
+}
+.X:hover{
+    color: aliceblue;
+    
+}
     </style>
 </head>
 
+<!--LINK2-->
 <body>
-
-<div class="files-container">
+<!--Picture of files *Doesnt do anything* -->
+ <div class="files-container">
     <img src="closefile.webp" alt="">
     <div class="files">Files</div>
-</div>
+ </div>
 
-<div class="Border1">
-    <div class="BorderExit">
-        <a class="X" href="PopupPage2.html">x</a>
-    </div>
-
-    <p class="P1"><u>Christmas Card</u></p>
-
-    <div class="Border2">
-        <p class="P3">"Wise Decision. Please press Enter"</p>
-
-        <div class="Enter">
-            <a class="AEnter" href="countdown.html">Enter</a>
-        </div>
-    </div>
-</div>
+ <div class="Border1"> <!--OuterBorder-->
+   <div class="BorderExit"> <!-- Exit Border Button-->
+    <a class="X" href="PopupPage2.html">x</a> 
+   </div> 
+   <p class="P1"><u>Christmas Card</u></p> 
+   
+   <div class="Border2"> <!-- INNER Border-->
+    <p class="P3">"Wise Decision. Please press Enter"</p>
+    <div class="Enter" ><a class="AEnter" href="countdown.html">Enter</a>  </div> <!--Yes button-->
+    
+    </div> 
+ </div> 
 
 </body>
 </html>
