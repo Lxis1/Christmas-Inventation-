@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Christmas Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
 <style>
 * {
     margin: 0;
@@ -10,48 +11,56 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-
 body {
-    background-image: url(merrychristmas-unq-10.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: linear-gradient(to bottom, #8a0000, #b30000);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: white;
-    padding-top: 60px;
-    padding-bottom: 60px; 
-    text-align: center;
+    overflow: hidden;
 }
-
-/* Greeting text */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
 .greeting {
-    font-size: 28px;
+    font-family: 'Lavishly Yours', cursive;
+    font-size: 42px;
     font-weight: bold;
+    text-align: center;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px gold;
-}
-
-.greeting span {
-    color: #ffeb3b;
+    color: gold;
+    text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b;
     animation: glowText 1.5s infinite alternate;
 }
-
 @keyframes glowText {
-    from { text-shadow: 0 0 10px gold; }
-    to { text-shadow: 0 0 25px gold; }
+    from { text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b; }
+    to { text-shadow: 0 0 25px #ffb700, 0 0 40px #ffb700; }
 }
-
+.subtext {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: #fff8dc;
+    text-shadow: 0 0 5px gold;
+}
 .button-container {
     display: flex;
     gap: 25px;
-    margin-bottom: 20px;
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .btn, .btn2, .btn3 {
     text-decoration: none;
     padding: 14px 28px;
@@ -62,24 +71,22 @@ body {
     background: linear-gradient(135deg, #c41e3a, #8a0000);
     color: gold;
     border: 2px solid gold;
-    box-shadow: 0 0 10px gold;
+    box-shadow: 0 0 15px gold;
     transition: 0.3s ease;
 }
-
 .btn:hover, .btn2:hover, .btn3:hover {
     background: linear-gradient(135deg, #ff2a4d, #b30000);
     transform: scale(1.08);
-    box-shadow: 0 0 15px gold;
+    box-shadow: 0 0 20px gold;
 }
-
 .Popup, .Popup1, .Popup2 {
     position: fixed;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.95);
     color: #c41e3a;
-    width: 300px;
+    width: 320px;
     padding: 25px;
     border-radius: 15px;
     text-align: center;
@@ -90,23 +97,14 @@ body {
     box-shadow: 0 0 50px gold;
     z-index: 5000;
 }
-
 #open:target, #open1:target, #open2:target {
     opacity: 1;
     pointer-events: auto;
 }
-
 .Popup h2, .Popup1 h2, .Popup2 h2 {
     color: #0b7a30;
     text-shadow: 0 0 5px gold;
 }
-
-.Popup:hover, .Popup1:hover, .Popup2:hover {
-    background: white;
-    color: #b30000;
-    transition: 1s ease;
-}
-
 .close, .close1, .close2 {
     display: inline-block;
     margin-top: 15px;
@@ -119,14 +117,12 @@ body {
     border: 2px solid gold;
     transition: 0.3s ease;
 }
-
 .close:hover, .close1:hover, .close2:hover {
     background: gold;
     color: black;
-    box-shadow: 0 0 10px gold;
+    box-shadow: 0 0 15px gold;
     transform: scale(1.05);
 }
-
 #christmas-clock {
     position: fixed;
     top: 0;
@@ -144,12 +140,10 @@ body {
     text-shadow: 0 0 5px black;
     animation: glow 1.5s infinite alternate;
 }
-
 @keyframes glow {
     from { box-shadow: 0 0 10px gold; }
     to { box-shadow: 0 0 25px gold; }
 }
-
 #audio-container {
     position: fixed;
     bottom: 10px;
@@ -158,7 +152,6 @@ body {
     z-index: 9999;
     text-align: center;
 }
-
 audio {
     outline: none;
     width: 300px;
@@ -166,27 +159,22 @@ audio {
     background: linear-gradient(135deg, #c41e3a, #8a0000);
     box-shadow: 0 0 10px gold;
 }
-
 audio::-webkit-media-controls-panel {
     background: linear-gradient(135deg, #c41e3a, #8a0000);
     color: gold;
     border-radius: 20px;
 }
-
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-mute-button {
     filter: drop-shadow(0 0 2px gold);
 }
-
 audio::-webkit-media-controls-timeline {
     background: gold;
     height: 5px;
     border-radius: 5px;
 }
-
 </style>
 </head>
-
 <body>
 
 <div id="christmas-clock">
@@ -194,11 +182,8 @@ audio::-webkit-media-controls-timeline {
     <span id="xmas-time">Loading...</span>
 </div>
 
-<!-- Greeting / Intro text -->
-<div class="greeting">
-    You are invited! 🎅 <br>
-    <span>Here are the invitations based on who you are:</span>
-</div>
+<div class="greeting">You Are Invited!</div>
+<div class="subtext">Here are the invitations based on who you are:</div>
 
 <div class="button-container">
     <a class="btn" href="#open">Family Invitation 🎄</a>
@@ -251,34 +236,38 @@ audio::-webkit-media-controls-timeline {
 <script>
 function updateChristmasCountdown() {
     const clock = document.getElementById("xmas-time");
-
-    const now = new Date(
-        new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" })
-    );
-
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" }));
     let year = now.getFullYear();
     let christmas = new Date(`December 25, ${year} 00:00:00`);
-
     if (now >= christmas) {
         christmas = new Date(`December 25, ${year + 1} 00:00:00`);
     }
-
     let diff = christmas - now;
-
     let days = Math.floor(diff / (1000 * 60 * 60 * 24));
     let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     let minutes = Math.floor((diff / (1000 * 60)) % 60);
     let seconds = Math.floor((diff / 1000) % 60);
-
     clock.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s 🇵🇭`;
 }
-
 setInterval(updateChristmasCountdown, 1000);
 updateChristmasCountdown();
+
+function createSnow() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    snowflake.innerHTML = '❄';
+    document.body.appendChild(snowflake);
+    setTimeout(() => snowflake.remove(), 10000);
+}
+setInterval(createSnow, 200);
 </script>
 
 </body>
 </html>
+
 
 
 
