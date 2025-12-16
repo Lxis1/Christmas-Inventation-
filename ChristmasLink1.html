@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Christmas Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
 <style>
 * {
     margin: 0;
@@ -12,39 +11,46 @@
     font-family: "Poppins", sans-serif;
 }
 body {
-    background-image: url(merrychristmas-unq-10.gif);
+    background-image: url('merrychristmas-unq-10.gif');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     color: white;
-    padding-top: 60px;
-    padding-bottom: 60px; 
+    padding: 60px 20px;
 }
-.greeting {
-    font-family: 'Lavishly Yours', cursive;
-    font-size: 48px;
+#christmas-clock {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #b30000, #ff2a4d);
     color: gold;
-    text-shadow: 0 0 10px gold;
-    margin-bottom: 20px;
-    text-align: center;
+    padding: 10px 25px;
+    border-radius: 0 0 20px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 9999;
+    box-shadow: 0 0 15px gold;
+    border: 2px solid gold;
+    text-shadow: 0 0 5px black;
+    animation: glow 1.5s infinite alternate;
 }
-.subtext {
-    font-size: 20px;
-    color: #fff8dc;
-    margin-bottom: 40px;
-    text-align: center;
+@keyframes glow {
+    from { box-shadow: 0 0 10px gold; }
+    to { box-shadow: 0 0 25px gold; }
 }
 .button-container {
     display: flex;
     gap: 25px;
+    margin-top: 120px;
     flex-wrap: wrap;
     justify-content: center;
 }
-.btn, .btn2, .btn3 {
+.button-container a {
     text-decoration: none;
     padding: 14px 28px;
     border-radius: 30px;
@@ -56,71 +62,63 @@ body {
     border: 2px solid gold;
     box-shadow: 0 0 10px gold;
     transition: 0.3s ease;
+    position: relative;
 }
-.btn:hover, .btn2:hover, .btn3:hover {
+.button-container a::after {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border-radius: 30px;
+    background: rgba(255,215,0,0.2);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0;
+    transition: 0.4s ease;
+}
+.button-container a:hover::after {
+    opacity: 1;
+}
+.button-container a:hover {
     background: linear-gradient(135deg, #ff2a4d, #b30000);
     transform: scale(1.08);
     box-shadow: 0 0 15px gold;
 }
-#christmas-clock {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #b30000, #ff2a4d);
-    color: gold;
-    padding: 8px 22px;
-    border-radius: 0 0 20px 20px;
-    font-weight: bold;
-    font-size: 16px;
-    z-index: 9999;
-    box-shadow: 0 0 15px gold;
-    border: 2px solid gold;
-    text-shadow: 0 0 5px black;
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1200px;
 }
-.Popup, .Popup1, .Popup2 {
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    background: rgba(255, 255, 255, 0.92);
-    color: #c41e3a;
-    width: 300px;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s ease;
-    border: 3px solid gold;
-    box-shadow: 0 0 50px gold;
-    z-index: 5000;
-}
-#open:target, #open1:target, #open2:target {
-    opacity: 1;
-    pointer-events: auto;
-}
-.Popup h2, .Popup1 h2, .Popup2 h2 {
-    color: #0b7a30;
-    text-shadow: 0 0 5px gold;
-}
-.close, .close1, .close2 {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 22px;
-    background: red;
+.video-card {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
     border-radius: 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    border: 2px solid gold;
-    transition: 0.3s ease;
+    padding: 15px;
+    box-shadow: 0 0 30px rgba(255,215,0,0.3);
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.close:hover, .close1:hover, .close2:hover {
-    background: gold;
-    color: black;
-    box-shadow: 0 0 10px gold;
-    transform: scale(1.05);
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 50px gold;
+}
+.video-card iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    border: none;
+}
+.video-card h3 {
+    margin-top: 12px;
+    color: gold;
+    font-size: 18px;
+    text-align: center;
 }
 #audio-container {
     position: fixed;
@@ -137,59 +135,51 @@ audio {
     background: linear-gradient(135deg, #c41e3a, #8a0000);
     box-shadow: 0 0 10px gold;
 }
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(135deg, #c41e3a, #8a0000);
+    color: gold;
+    border-radius: 20px;
+}
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button {
+    filter: drop-shadow(0 0 2px gold);
+}
+audio::-webkit-media-controls-timeline {
+    background: gold;
+    height: 5px;
+    border-radius: 5px;
+}
 </style>
 </head>
 <body>
 
 <div id="christmas-clock">
-    🎄 Christmas Countdown:
-    <span id="xmas-time">Loading...</span>
+    🎄 Christmas Countdown: <span id="xmas-time">Loading...</span>
 </div>
-
-<div class="greeting">You Are Invited!</div>
-<div class="subtext">Here are the invitations based on who you are:</div>
 
 <div class="button-container">
-    <a class="btn" href="#open">Family Invitation 🎄</a>
-    <a class="btn2" href="#open1">Friend's Invitation 🎁</a>
-    <a class="btn3" href="#open2">Company Invitation 🏢</a>
+    <a href="family.html">Family Invitation 🎄</a>
+    <a href="friend.html">Friend's Invitation 🎁</a>
+    <a href="company.html">Company Invitation 🏢</a>
 </div>
 
-<div id="open" class="Popup">
-    <h2>Christmas With The Fam! 🎄</h2>
-    <p>Welcome Fam! You're invited to our <strong>Christmas Celebration!</strong> 🎅✨</p>
-    <ul style="list-style:none;color:#b30000;">
-        <li>📅 December 25, 2025</li>
-        <li>⏰ 12:00 AM Midnight</li>
-        <li>🏠 Family House</li>
-    </ul>
-    <a class="close" href="#">Close</a>
-</div>
-
-<div id="open1" class="Popup1">
-    <h2>Christmas With Friends! 🎁</h2>
-    <p>Let's celebrate this magical <strong>Christmas Night!</strong> ⛄🎄</p>
-    <ul style="list-style:none;color:#b30000;">
-        <li>📅 December 24, 2025</li>
-        <li>⏰ 5:00 PM</li>
-        <li>🏠 Friend's House</li>
-    </ul>
-    <a class="close1" href="#">Close</a>
-</div>
-
-<div id="open2" class="Popup2">
-    <h2>Christmas With The Company! 🏢🎄</h2>
-    <p>You are warmly invited to our <strong>Company Christmas Party!</strong> 🎉</p>
-    <ul style="list-style:none;color:#b30000;">
-        <li>📅 December 20, 2025</li>
-        <li>⏰ 6:00 PM</li>
-        <li>🏢 Company Hall</li>
-    </ul>
-    <a class="close2" href="#">Close</a>
+<div class="video-gallery">
+    <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/vaIGgkiQHvY?si=KgoJq0S-ieyOv17p&start=10" allowfullscreen></iframe>
+        <h3>Christmas with Family</h3>
+    </div>
+    <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/RCNveD42mmk?si=-tPfPpU1KFmEPkic" allowfullscreen></iframe>
+        <h3>Friends' Christmas Night</h3>
+    </div>
+    <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/0FbgXsVn43A?si=kfxsDAHRFVbryWsy" allowfullscreen></iframe>
+        <h3>Company Celebration</h3>
+    </div>
 </div>
 
 <div id="audio-container">
-    <audio autoplay loop controls>
+    <audio controls autoplay loop>
         <source src="ytmp3free.cc_jingle-bells-tagalog-song-parody-jingle-bells-tae-ni-sabel-by-nissimac-eternal-youtubemp3free.org.mp3" type="audio/mpeg">
     </audio>
 </div>
@@ -200,14 +190,12 @@ function updateChristmasCountdown() {
     const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" }));
     let year = now.getFullYear();
     let christmas = new Date(`December 25, ${year} 00:00:00`);
-    if (now >= christmas) {
-        christmas = new Date(`December 25, ${year + 1} 00:00:00`);
-    }
+    if (now >= christmas) christmas = new Date(`December 25, ${year+1} 00:00:00`);
     let diff = christmas - now;
-    let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    let minutes = Math.floor((diff / (1000 * 60)) % 60);
-    let seconds = Math.floor((diff / 1000) % 60);
+    let days = Math.floor(diff / (1000*60*60*24));
+    let hours = Math.floor((diff / (1000*60*60)) % 24);
+    let minutes = Math.floor((diff / (1000*60)) % 60);
+    let seconds = Math.floor((diff/1000) % 60);
     clock.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s 🇵🇭`;
 }
 setInterval(updateChristmasCountdown, 1000);
@@ -216,12 +204,3 @@ updateChristmasCountdown();
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
