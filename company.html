@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Company Christmas Invitation</title>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <style>
 *{
@@ -14,40 +13,51 @@
     font-family:"Poppins",sans-serif;
 }
 
+/* BACKGROUND */
 body{
     min-height:100vh;
-    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:#f4f4f4;
+    background:url('merrychristmas-unq-10.gif') center/cover no-repeat;
+    color:white;
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:40px 20px;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:-1;
 }
 
 #open{display:none;}
 
-
+/* ENTRY BUTTON – CORPORATE */
 .enter{
-    padding:18px 45px;
+    padding:18px 52px;
     border-radius:40px;
-    background:linear-gradient(135deg,#d4af37,#f7e7a9);
-    color:#1b1b1b;
+    background:linear-gradient(135deg,#7a0c0c,#3f0000);
+    color:gold;
     font-weight:600;
     letter-spacing:1px;
     cursor:pointer;
-    box-shadow:0 10px 30px rgba(212,175,55,.45);
-    transition:.3s ease;
+    border:2px solid rgba(255,215,0,.8);
+    box-shadow:0 0 25px rgba(255,215,0,.7);
+    transition:.35s ease;
 }
+
 .enter:hover{
-    transform:translateY(-4px);
-    box-shadow:0 20px 40px rgba(212,175,55,.6);
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 0 40px gold;
+    background:linear-gradient(135deg,#b30000,#7a0000);
 }
 
-
+/* CONTENT */
 .content{
     display:none;
     width:100%;
-    padding:50px 20px;
-    text-align:center;
     animation:fadeIn 1.3s ease forwards;
 }
 
@@ -59,72 +69,80 @@ body{
     to{opacity:1; transform:translateY(0);}
 }
 
+/* NAV – SAME SYSTEM */
 nav{
-    margin-bottom:40px;
+    margin-bottom:45px;
+    text-align:center;
 }
 
 nav a{
-    color:#d4af37;
+    color:gold;
     text-decoration:none;
-    margin:0 16px;
-    font-weight:500;
-    letter-spacing:.5px;
+    margin:0 14px;
+    font-weight:600;
+    letter-spacing:.6px;
+    padding:10px 22px;
+    border-radius:30px;
+    border:2px solid transparent;
     position:relative;
-    padding-bottom:6px;
-    transition:color .3s ease;
+    transition:.35s ease;
 }
-
 
 nav a::after{
     content:"";
     position:absolute;
-    left:50%;
-    bottom:0;
-    width:0;
-    height:2px;
-    background:#f7e7a9;
-    transition:.3s ease;
-    transform:translateX(-50%);
+    inset:-6px;
+    border-radius:30px;
+    background:rgba(255,215,0,.25);
+    filter:blur(12px);
+    opacity:0;
+    z-index:-1;
+    transition:.35s ease;
 }
 
 nav a:hover{
-    color:#f7e7a9;
+    background:linear-gradient(135deg,#b30000,#7a0000);
+    border-color:gold;
+    transform:scale(1.08);
+    box-shadow:0 0 18px gold;
 }
 
-nav a:hover::after{
-    width:100%;
-}
+nav a:hover::after{opacity:1;}
 
-
+/* MAIN CARD */
 .card{
     max-width:900px;
     margin:auto;
-    background:rgba(255,255,255,.08);
+    background:rgba(0,0,0,.65);
     backdrop-filter:blur(10px);
-    border-radius:20px;
+    border-radius:24px;
     padding:55px 45px;
-    box-shadow:0 30px 70px rgba(0,0,0,.6);
+    box-shadow:0 0 45px rgba(255,215,0,.45);
+    border:1px solid rgba(255,215,0,.45);
+    text-align:center;
 }
 
 .card h1{
-    font-size:46px;
-    letter-spacing:1px;
-    color:#f7e7a9;
-    margin-bottom:20px;
+    font-size:44px;
+    color:gold;
+    margin-bottom:18px;
+    text-shadow:0 0 12px black;
 }
 
 .subtitle{
     font-size:18px;
-    color:#ddd;
-    margin-bottom:35px;
+    color:#f1f1f1;
+    margin-bottom:30px;
+    font-style:italic;
 }
 
 .divider{
     width:120px;
     height:3px;
-    background:#d4af37;
+    background:gold;
     margin:25px auto;
     border-radius:2px;
+    box-shadow:0 0 10px gold;
 }
 
 .card p{
@@ -133,6 +151,7 @@ nav a:hover::after{
     margin:16px 0;
 }
 
+/* DETAILS */
 .details{
     margin:35px 0;
     display:grid;
@@ -141,29 +160,39 @@ nav a:hover::after{
 }
 
 .detail-box{
-    background:rgba(0,0,0,.35);
-    padding:20px;
-    border-radius:14px;
+    background:rgba(0,0,0,.45);
+    padding:22px;
+    border-radius:18px;
+    box-shadow:0 0 18px rgba(255,215,0,.25);
+    transition:.3s ease;
 }
-.detail-box strong{color:#d4af37;}
 
+.detail-box strong{color:gold;}
+
+.detail-box:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 35px gold;
+}
+
+/* VIDEO */
 iframe{
     width:100%;
     max-width:560px;
     height:315px;
-    border-radius:16px;
+    border-radius:18px;
     border:none;
     margin-top:35px;
+    box-shadow:0 0 30px rgba(255,215,0,.4);
 }
 
-
+/* GALLERY */
 .gallery{
     margin-top:60px;
     text-align:center;
 }
 
 .gallery h2{
-    color:#f7e7a9;
+    color:gold;
     margin-bottom:25px;
     letter-spacing:1px;
 }
@@ -171,7 +200,7 @@ iframe{
 .gallery-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    gap:22px;
     max-width:900px;
     margin:auto;
 }
@@ -180,19 +209,21 @@ iframe{
     width:100%;
     height:220px;
     object-fit:cover;
-    border-radius:16px;
-    box-shadow:0 15px 35px rgba(0,0,0,.6);
-    transition:.3s ease;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,215,0,.35);
+    transition:.35s ease;
 }
 
 .gallery-grid img:hover{
-    transform:scale(1.05);
+    transform:scale(1.06);
+    box-shadow:0 0 50px gold;
 }
 
 footer{
-    margin-top:40px;
+    margin-top:35px;
     font-size:14px;
-    color:#ccc;
+    color:#ddd;
+    letter-spacing:.5px;
 }
 </style>
 </head>
@@ -209,21 +240,22 @@ footer{
 
 <nav>
     <a href="ChristmasLink1.html">Home</a>
-    <a href="friend.html">Friends</a>
-    <a href="company.html">Company</a>
-    <a href="family.html">Family</a>
+    <a href="family.html">Family Invitation</a>
+    <a href="friend.html">Friends Invitation</a>
+    <a href="company.html">Company Invitation</a>
 </nav>
 
 <div class="card">
-
     <h1>Company Christmas Celebration</h1>
     <div class="divider"></div>
 
-    <p class="subtitle"><em>You are invited to our annual company Christmas celebration.</em></p>
+    <p class="subtitle">
+        You are cordially invited to our annual company Christmas celebration.
+    </p>
 
     <p>
-        As the year comes to a close, we would like to express our sincere
-        appreciation for your dedication, teamwork, and commitment.
+        As the year comes to a close, we extend our sincere appreciation
+        for your dedication, teamwork, and continued commitment.
     </p>
 
     <div class="details">
@@ -237,11 +269,9 @@ footer{
         the season and welcoming the coming year together.
     </p>
 
-   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-O3WdX3dav4?si=DQtwRwKFB1Y2kWtv&amp;start=10" 
-   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <footer>Warm regards,<br>Management Team</footer>
+    <iframe src="https://www.youtube-nocookie.com/embed/-O3WdX3dav4?start=10" allowfullscreen></iframe>
 
+    <footer>Warm regards,<br>Management Team</footer>
 </div>
 
 <div class="gallery">
@@ -255,8 +285,11 @@ footer{
 
 </div>
 
-
-
+<audio>
+    <source src="ytmp3free.cc_brenda-lee-rockin-around-the-christmas-tree-official-lyric-video-youtubemp3free.org.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
+
+
 
