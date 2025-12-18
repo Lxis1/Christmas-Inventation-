@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christmas Love</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+header{
+    width:100%;
+    background:rgba(120,0,0,0.9);
+    color:#fff;
+    padding:15px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.nav-left{ display:flex; gap:20px; }
+
+.nav-left a{
+    color:#fff;
+    text-decoration:none;
+    font-family:'Poppins', sans-serif;
+    font-size:14px;
+    letter-spacing:1px;
+}
+.nav-left a:hover{ text-decoration:underline; }
+
+.header-message{
+    font-family:'Great Vibes', cursive;
+    font-size:28px;
+    color:#ffdede;
+}
+
+
+body{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(255,0,0,0.35), rgba(0,0,0,0.6)),
+        url('https://images.unsplash.com/photo-1512389142860-9c449e58a543');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    position:relative;
+    font-family:'Poppins', sans-serif;
+    padding:20px;
+    overflow-x:hidden;
+}
+
+
+.main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    text-align:center;
+    color:#fff;
+    position:relative;
+    z-index:1;
+}
+
+.main h1{
+    font-family:'Great Vibes', cursive;
+    font-size:64px;
+    margin-bottom:10px;
+}
+
+.main p{
+    font-size:18px;
+    max-width:600px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+
+.spiral{
+    display:flex;
+    flex-direction:row;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.spiral img{
+    width:100px;
+    height:auto;
+    opacity:0;
+    animation:shuffleRL 5s infinite;
+}
+
+.spiral img:nth-child(1){ animation-delay:0s; }
+.spiral img:nth-child(2){ animation-delay:1s; }
+.spiral img:nth-child(3){ animation-delay:2s; }
+.spiral img:nth-child(4){ animation-delay:3s; }
+.spiral img:nth-child(5){ animation-delay:4s; }
+
+@keyframes shuffleRL{
+    0%, 100%{ opacity:0; transform:translateX(0px) translateY(0px) rotate(0deg); }
+    20%{ opacity:1; transform:translateX(-50px) translateY(5px) rotate(5deg); }
+    40%{ transform:translateX(-100px) translateY(-5px) rotate(-5deg); }
+    60%{ transform:translateX(-150px) translateY(10px) rotate(10deg); }
+    80%{ transform:translateX(-200px) translateY(-10px) rotate(-10deg); }
+}
+
+
+.messages-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+input[type=checkbox]{ display:none; }
+
+
+.card{
+    width:250px;
+    padding:15px;
+    text-align:center;
+    border:2px solid #ff4d4d;
+    border-radius:12px;
+    cursor:pointer;
+    transition: all 0.5s ease;
+    background: rgba(255,255,255,0.05);
+    font-weight:600;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    border-color:#ff1a1a;
+}
+
+
+.message{
+    max-width:600px;
+    text-align:center;
+    background:rgba(255,255,255,0.2);
+    padding:10px;
+    border-radius:8px;
+    margin-top:5px;
+    overflow:hidden;
+    opacity:0;
+    max-height:0;
+    transition: all 0.6s ease;
+}
+
+input#mu:checked + .card.card1 + .message.message1{
+    opacity:1;
+    max-height:300px;
+    transform: translateY(0);
+}
+
+input#crush:checked + .card.card2 + .message.message2{
+    opacity:1;
+    max-height:300px;
+    transform: translateX(0);
+    animation: slideLeft 0.5s ease;
+}
+
+input#girlfriend:checked + .card.card3 + .message.message3{
+    opacity:1;
+    max-height:300px;
+    transform: scale(1);
+    animation: scaleUp 0.5s ease;
+}
+
+input#boyfriend:checked + .card.card4 + .message.message4{
+    opacity:1;
+    max-height:300px;
+    transform: translateX(0);
+    animation: slideRight 0.5s ease;
+}
+
+input#umaasa:checked + .card.card5 + .message.message5{
+    opacity:1;
+    max-height:300px;
+    box-shadow: 0 0 15px #ffdede;
+    animation: glow 0.8s ease;
+}
+
+
+@keyframes slideLeft{ from{ transform: translateX(-100%);} to{ transform: translateX(0);} }
+@keyframes slideRight{ from{ transform: translateX(100%);} to{ transform: translateX(0);} }
+@keyframes scaleUp{ from{ transform: scale(0.8);} to{ transform: scale(1);} }
+@keyframes glow{
+    0%{ box-shadow: 0 0 0 #ffdede;}
+    50%{ box-shadow: 0 0 20px #ffdede;}
+    100%{ box-shadow: 0 0 0 #ffdede;}
+}
+
+.falling-star, .snowflake, .heart{
+    position:absolute;
+    top:-50px;
+    z-index:0;
+    pointer-events:none;
+}
+
+
+.falling-star{
+    width:4px;
+    height:4px;
+    background:yellow;
+    border-radius:50%;
+    animation:fallStar linear infinite;
+}
+@keyframes fallStar{
+    0%{ transform: translateX(0) translateY(0) rotate(0deg); opacity:1;}
+    100%{ transform: translateX(-500px) translateY(800px) rotate(360deg); opacity:0;}
+}
+
+
+.snowflake{
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation:fallSnow linear infinite;
+}
+@keyframes fallSnow{
+    0%{ transform: translateY(0) translateX(0);}
+    100%{ transform: translateY(800px) translateX(50px);}
+}
+
+
+.heart{
+    width:10px;
+    height:10px;
+    background:red;
+    clip-path: polygon(50% 0%, 61% 18%, 98% 35%, 75% 60%, 50% 100%, 25% 60%, 2% 35%, 39% 18%);
+    opacity:0.9;
+    animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+    0%{ transform: translateY(0) translateX(0) rotate(0deg); opacity:1;}
+    100%{ transform: translateY(-600px) translateX(50px) rotate(360deg); opacity:0;}
+}
+
+
+@media screen and (max-width:600px){
+    .spiral{ flex-direction:column; gap:10px;}
+    .spiral img{ width:80px; }
+    .card{ width:200px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav class="nav-left">
+        <a href="ChristmasLink1.html">Home</a>
+        <a href="family.html">Family Invitation</a>
+        <a href="friend.html">Friend's Invitation</a>
+        <a href="company.html">Company Invitation</a>
+        <a href="">About</a>
+    </nav>
+    <div class="header-message">Christmas isn't complete without you ❤</div>
+</header>
+
+<section class="main">
+    <div class="spiral">
+        <img src="ChristmasLove.webp" alt="">
+        <img src="ChristmasLove2.webp" alt="">
+        <img src="ChristmasLove3.jpg" alt="">
+        <img src="ChirstmasLove4.jpg" alt="">
+        <img src="ChristmasLove5.jpg" alt="">
+    </div>
+
+    <h1>Christmas With You</h1>
+    <p>In every snowfall and every silent night, my heart chooses you. This Christmas, and all the ones to come, my love stays warm with you.</p>
+
+    <div class="messages-container">
+
+        <input type="checkbox" id="mu">
+        <label class="card card1" for="mu">M.U</label>
+        <p class="message message1">🎄 Hey [M.U Name]! You’re warmly invited to spend a cozy and festive Christmas with us. Let’s celebrate with laughter, good food, and holiday cheer. Hope you can make it!</p>
+
+        <input type="checkbox" id="crush">
+        <label class="card card2" for="crush">CRUSH</label>
+        <p class="message message2">🎅 Hi [Crush Name]! Join me this Christmas for a magical evening filled with joy, lights, and festive fun. Your presence will make the holiday extra special!</p>
+
+        <input type="checkbox" id="girlfriend">
+        <label class="card card3" for="girlfriend">GIRLFRIEND</label>
+        <p class="message message3">❤️ My love, you are invited to a Christmas full of cuddles and magical moments together. Let’s make this holiday unforgettable!</p>
+
+        <input type="checkbox" id="boyfriend">
+        <label class="card card4" for="boyfriend">BOYFRIEND</label>
+        <p class="message message4">🎁 Babe, join me for Christmas lights, warm cocoa, and festive fun. Can’t wait to share the holiday magic with you!</p>
+
+        <input type="checkbox" id="umaasa">
+        <label class="card card5" for="umaasa">UMAASA</label>
+        <p class="message message5">🌟 Hey [Name], even if I can’t be there personally, enjoy this Christmas with someone dear to your heart. May it be full of joy and love!</p>
+
+    </div>
+</section>
+
+<div class="falling-star" style="left:10%; animation-duration:6s;"></div>
+<div class="falling-star" style="left:30%; animation-duration:7s;"></div>
+<div class="falling-star" style="left:70%; animation-duration:5s;"></div>
+
+<div class="snowflake" style="left:15%; animation-duration:10s;"></div>
+<div class="snowflake" style="left:50%; animation-duration:12s;"></div>
+<div class="snowflake" style="left:80%; animation-duration:14s;"></div>
+
+<div class="heart" style="left:25%; animation-duration:8s;"></div>
+<div class="heart" style="left:55%; animation-duration:9s;"></div>
+<div class="heart" style="left:75%; animation-duration:7s;"></div>
+
+<audio autoplay loop>
+    <source src="Merry Christmas, Darling - The Carpenters.mp3">
+</audio>
+
+</body>
+</html>
