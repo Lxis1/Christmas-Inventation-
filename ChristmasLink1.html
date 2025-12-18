@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Christmas Invitation</title>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <style>
 * {
     margin: 0;
@@ -23,6 +22,7 @@ body {
     color: white;
     padding: 60px 20px;
 }
+
 #christmas-clock {
     position: fixed;
     top: 0;
@@ -40,6 +40,22 @@ body {
     text-shadow: 0 0 5px black;
     animation: glow 1.5s infinite alternate;
 }
+
+/* Snowflake link beside countdown */
+#snowflake-link{
+    margin-left: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: gold;
+    cursor: pointer;
+    transition: transform .3s ease, text-shadow .3s ease;
+}
+
+#snowflake-link:hover{
+    transform: scale(1.3) rotate(15deg);
+    text-shadow: 0 0 10px gold;
+}
+
 @keyframes glow {
     from { box-shadow: 0 0 10px gold; }
     to { box-shadow: 0 0 25px gold; }
@@ -155,27 +171,31 @@ audio::-webkit-media-controls-timeline {
 <body>
 
 <div id="christmas-clock">
-    🎄 Christmas Countdown: <span id="xmas-time">Loading...</span>
+    🎄 Christmas Countdown:
+    <span id="xmas-time">Loading...</span>
+    <a href="crush.html" id="snowflake-link" aria-label="Special invitation">❄️</a>
 </div>
 
 <div class="button-container">
     <a href="family.html">Family Invitation 🎄</a>
     <a href="friend.html">Friend's Invitation 🎁</a>
     <a href="company.html">Company Invitation 🏢</a>
+
+
 </div>
 
 <div class="video-gallery">
     <div class="video-card">
         <iframe src="https://www.youtube-nocookie.com/embed/vaIGgkiQHvY?si=KgoJq0S-ieyOv17p&start=10" allowfullscreen></iframe>
-        <h3>What I want for Christmas 🤭 </h3>
+        <h3>Christmas with Family</h3>
     </div>
     <div class="video-card">
         <iframe src="https://www.youtube-nocookie.com/embed/RCNveD42mmk?si=-tPfPpU1KFmEPkic" allowfullscreen></iframe>
-        <h3>Pro Dance Video🕺💃</h3>
+        <h3>Friends' Christmas Night</h3>
     </div>
     <div class="video-card">
         <iframe src="https://www.youtube-nocookie.com/embed/0FbgXsVn43A?si=kfxsDAHRFVbryWsy" allowfullscreen></iframe>
-        <h3>Simbang Gabi Lez Gow⛪🚶🏻‍➡️</h3>
+        <h3>Company Celebration</h3>
     </div>
 </div>
 
@@ -205,5 +225,3 @@ updateChristmasCountdown();
 
 </body>
 </html>
-
-
